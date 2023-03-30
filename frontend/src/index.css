@@ -6,7 +6,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.site-container {
+  min-height: 100vh;
+}
 
+main {
+  flex: 1;
+}
+.btn-primary {
+  background-color: rgb(249, 255, 244);
+  color: black;
+}
 .products {
   display: flex;
 }

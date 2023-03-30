@@ -8,7 +8,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="d-flex dlex-column site-container">
         <header>
           <Navbar bg="dark" variant="dark">
             <Container>
