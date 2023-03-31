@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 //import data from '../data';
 
@@ -49,9 +51,9 @@ function HomeScreen() {
       <h1>Favorites of the Week</h1>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox varaint="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (

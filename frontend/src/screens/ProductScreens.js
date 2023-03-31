@@ -10,6 +10,9 @@ import Badge from 'react-bootstrap/Badge';
 import { Helmet } from 'react-helmet-async';
 
 import ListGroup from 'react-bootstrap/ListGroup';
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
+import { getError } from '../utils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -41,16 +44,16 @@ function ProductScreen() {
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     };
     fetchData();
   }, [slug]);
 
   return loading ? (
-    <div>Loading...</div>
+    <LoadingBox />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox varaint="danger">{error}</MessageBox>
   ) : (
     <div>
       <Row>
@@ -73,7 +76,7 @@ function ProductScreen() {
               <ListGroup.Item>
                 <Rating>
                   rating={product.rating}
-                  numReviews+{product.numReviews}
+                  numReviews={product.numReviews}
                 </Rating>
               </ListGroup.Item>
               <h1>{product.name}</h1>
