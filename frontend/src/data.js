@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Face Masks',
       slug: 'face-mask',
       category: 'FaceMask',
@@ -14,6 +15,7 @@ const data = {
         'a very sufficient skin care product that leaves your face poreless',
     },
     {
+      _id: '2',
       name: 'Strawberry Perfume',
       slug: 'straw-perfume',
       category: 'Straw',
@@ -27,6 +29,7 @@ const data = {
         'a very very wild, sweet, and feminine take on what it means to always get a compliment',
     },
     {
+      _id: '3',
       name: 'Caffiene Drops ',
       slug: 'caffeine-drops',
       category: 'CaffieneDrops',
@@ -40,6 +43,7 @@ const data = {
         'a twist on black spot treatment and a favorite of the hydration in under your eyes',
     },
     {
+      _id: '4',
       name: 'Black Honey',
       slug: 'black-honey-lips',
       category: 'LipStick',
