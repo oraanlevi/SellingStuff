@@ -7,7 +7,8 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { Store } from '../Store';
 
 export default function PaymentMethodScreen() {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { shippingAddress, paymentMethod },
@@ -16,13 +17,14 @@ export default function PaymentMethodScreen() {
   const [paymentMethodName, setPaymentMethod] = useState(
     paymentMethod || 'PayPal'
   );
+
   useEffect(() => {
     if (!shippingAddress.address) {
       navigate('/shipping');
     }
   }, [shippingAddress, navigate]);
   const submitHandler = (e) => {
-    e.preventDeafult();
+    e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
